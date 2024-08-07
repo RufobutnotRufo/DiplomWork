@@ -1,15 +1,38 @@
 import React from "react";
 import "./RegistrationForm.scss";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { UserInterface } from "./UserInterface";
 
 const RegistrationForm: React.FC = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    watch,
+  } = useForm<UserInterface>();
+
+  const onSubmit: SubmitHandler<UserInterface> = (data) => {
+    console.log(data);
+  };
+
+  const password = watch('password');
+
   return (
     <div className="registration-form">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="registration-form-group">
-          <p className="registration-form-label">
-            <label htmlFor="name">Name</label>
-          </p>
+          <label htmlFor="name" className="registration-form-label">
+            <p>Name</p>
+          </label>
+          <div>{errors.name && <p className="form-errors-style">{errors.name.message}</p>}</div>
           <input
+            {...register('name', {
+              required: 'Поле обязательно к заполнению',
+              minLength: {
+                value: 5,
+                message: 'Минимум 5 символов',
+              },
+            })}
             id="name"
             type="text"
             className="registration-form-input"
@@ -17,10 +40,18 @@ const RegistrationForm: React.FC = () => {
           />
         </div>
         <div className="registration-form-group">
-          <p className="registration-form-label">
-            <label htmlFor="surname">Surname</label>
-          </p>
+          <label htmlFor="surname" className="registration-form-label">
+            <p>Surname</p>
+          </label>
+          <div>{errors.surname && <p className="form-errors-style">{errors.surname.message}</p>}</div>
           <input
+            {...register('surname', {
+              required: 'Поле обязательно к заполнению',
+              minLength: {
+                value: 5,
+                message: 'Минимум 5 символов',
+              },
+            })}
             id="surname"
             type="text"
             className="registration-form-input"
@@ -28,38 +59,63 @@ const RegistrationForm: React.FC = () => {
           />
         </div>
         <div className="registration-form-group">
-          <p className="registration-form-label">
-            <label htmlFor="nickname">Nickname</label>
-          </p>
+          <label htmlFor="email" className="registration-form-label">
+            <p>Email</p>
+          </label>
+          <div>{errors.email && <p className="form-errors-style">{errors.email.message}</p>}</div>
           <input
-            id="nickname"
+            {...register('email', {
+              required: 'Поле обязательно к заполнению',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Некорректный email',
+              },
+            })}
+            id="email"
             type="text"
             className="registration-form-input"
-            placeholder="Nick-Name..."
+            placeholder="Email..."
           />
         </div>
         <div className="registration-form-group">
-          <p className="registration-form-label">
-            <label htmlFor="password">Password</label>
-          </p>
+          <label htmlFor="password" className="registration-form-label">
+            <p>Password</p>
+          </label>
+          <div>{errors.password && <p className="form-errors-style">{errors.password.message}</p>}</div>
           <input
+            {...register('password', {
+              required: 'Поле обязательно к заполнению',
+              pattern: {
+                value: /^(?=.*[a-z]).{8,}$/,
+                message: 'Пароль должен содержать минимум 8 символов и включать хотя бы одну букву в нижнем регистре',
+              },
+            })}
             id="password"
             type="password"
             className="registration-form-input"
-            placeholder="Password"
+            placeholder="Password..."
           />
         </div>
         <div className="registration-form-group">
-          <p className="registration-form-label">
-            <label htmlFor="repeat-password">Repeat Password</label>
-          </p>
+          <label htmlFor="repeat-password" className="registration-form-label">
+            <p>Repeat Password</p>
+          </label>
+          <div>{errors.repeatPassword && <p className="form-errors-style">{errors.repeatPassword.message}</p>}</div>
           <input
+            {...register('repeatPassword', {
+              required: 'Поле обязательно к заполнению',
+              validate: (value) =>
+                value === password || 'Пароли не совпадают',
+            })}
             id="repeat-password"
             type="password"
             className="registration-form-input"
-            placeholder="Repeat your password"
+            placeholder="Repeat your password..."
           />
         </div>
+        <button type="submit" className="registration-form-submit">
+          Register
+        </button>
       </form>
     </div>
   );

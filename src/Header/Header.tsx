@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BusketSvg from "../assets/busket-svg.svg";
 import "./Header.scss";
 
@@ -37,7 +38,11 @@ const Header: React.FC = () => {
             </li>
             <li className="header-menu-nav-item">
               <a className="header-menu-nav-item-link">
-                <button className="log-in-sign-up-button">Login/Singup</button>
+                <Link to="/Sign-Up">
+                  <button className="log-in-sign-up-button">
+                    Login/Singup
+                  </button>
+                </Link>
               </a>
             </li>
             <li className="header-menu-nav-item">
