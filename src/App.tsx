@@ -6,30 +6,33 @@ import { MyContextProvider } from "./UseContext";
 import HeroSlider from "./HeroSlider/HeroSlider";
 import RecentlyUpdated from "./RecentlyUpdated/RecentlyUpdated";
 import Description from "./Pages/loginRegister/Description/Description";
-
+import SelectedGenre from "./Pages/loginRegister/SelectedGenre/SelectedGenre";
 
 function App() {
   return (
     <BrowserRouter>
       <MyContextProvider>
-      <Header />
+        <Header />
         <Routes>
           <Route
             path="/"
             element={
               <>
                 <HeroSlider />
-                <RecentlyUpdated/>
-                <Description />
+                <RecentlyUpdated />
               </>
             }
           ></Route>
           <Route path="/Sign-Up" element={<LoginRegister />}></Route>
-          {/* <Route path="/Description" element={<Description />}></Route> */}
+          <Route path="/Description" element={<Description />}></Route>
+          <Route path="/Description/Genre" element={<SelectedGenre />}></Route>
         </Routes>
       </MyContextProvider>
     </BrowserRouter>
   );
 }
+
+//Исправить жанры н астранице описания
+//приступить к трендам
 
 export default App;

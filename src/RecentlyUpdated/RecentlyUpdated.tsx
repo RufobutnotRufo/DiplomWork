@@ -1,6 +1,7 @@
 import "./RecentlyUpdated.scss";
 import { useState } from "react";
 import { useMyContext } from "../UseContext";
+import { useNavigate } from "react-router";
 
 const RecentlyUpdated = () => {
   const [updatedMovies] = useState([
@@ -222,10 +223,14 @@ const RecentlyUpdated = () => {
     },
   ]);
 
-
-  const getObjectToDescriptionPage = (itemId: string) => {
+  
+  const navigate = useNavigate();
+  const { setDescriptionData,} = useMyContext()
+  
+   const getObjectToDescriptionPage = (itemId: string) => {
     const descObj = updatedMovies.find((item) => item.imdbid === itemId)
-    console.log(descObj);
+    setDescriptionData(descObj)
+    navigate('/Description'); 
   };
 
   return (

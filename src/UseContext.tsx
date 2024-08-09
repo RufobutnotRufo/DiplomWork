@@ -10,6 +10,8 @@ interface MyContextType {
   setMoviesBase: (moviesBase: Movie[]) => void;
   descriptionData: Movie | undefined;
   setDescriptionData: (descriptionData: Movie | undefined) => void;
+  selectedGenre: string;
+  setSelectedGenre: (genre: string) => void; // Updated
 }
 
 const MyContextDefaultValues: MyContextType = {
@@ -21,6 +23,8 @@ const MyContextDefaultValues: MyContextType = {
   setMoviesBase: () => {},
   descriptionData: undefined,
   setDescriptionData: () => {},
+  selectedGenre: '',
+  setSelectedGenre: () => {}, // Updated
 };
 
 const MyContext = createContext<MyContextType>(MyContextDefaultValues);
@@ -1619,6 +1623,7 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({
   "imdbid": "tt0022100",
   "imdb_link": "https://www.imdb.com/title/tt0022100"
 }]);
+const [selectedGenre,setSelectedGenre] = useState<string>('')
 
   return (
     <MyContext.Provider
@@ -1631,6 +1636,8 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({
         setMoviesBase,
         descriptionData,
         setDescriptionData,
+        selectedGenre,
+        setSelectedGenre,
       }}
     >
       {children}
