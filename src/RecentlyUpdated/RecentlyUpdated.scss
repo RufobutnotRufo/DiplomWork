@@ -1,39 +1,64 @@
-.recently-updated{
-    margin-top: 72px;
-    .recently-updated-title-text{
+.recently-updated {
+    margin-top: 50px;
+    background-color: #000000;
+    padding: 20px 20px 20px 20px;
+    .recently-updated-title-text {
         font-size: 24px;
         font-weight: 500;
         color: #000000;
         font-family: "Poppins", sans-serif;
     }
-    .updatet-items{
+    .btn-to-decription-page{
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+    }
+    .updatet-items {
+        display: flex;
+        gap: 70px;
         margin-top: 24px;
-        .updatet-item{
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            width: 30px; 
+            height: 10px; 
+        }
+        &::-webkit-scrollbar-thumb {
+            background:red;
+            border-radius: 10px; 
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+        .updatet-item {
+            width:max-content;
             display: flex;
             align-items: center;
             gap: 24px;
-            .updatet-item-img{
-                img{
+            .updatet-item-img {
+                img {
                     width: 64px;
                     height: 103px;
                     border-radius: 5px;
                 }
             }
-            .updatet-item-desc{
-                .updatet-item-title{
+            .updatet-item-desc {
+                .updatet-item-title {
                     font-size: 16px;
                     font-family: "Poppins", sans-serif;
                     font-weight: 500;
+                    color: grey;
                 }
-                .updatet-item-data{
+                .updatet-item-data {
                     font-size: 16px;
                     font-family: "Poppins", sans-serif;
                     font-weight: 400;
+                    color: red;
                 }
-                .updatet-item-rank{
+                .updatet-item-rank {
                     font-size: 16px;
                     font-family: "Poppins", sans-serif;
                     font-weight: 400;
+                    color: grey;
                 }
             }
         }

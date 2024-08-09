@@ -1,99 +1,255 @@
-import './RecentlyUpdated.scss';
-import { useState } from 'react';
+import "./RecentlyUpdated.scss";
+import { useState } from "react";
 
 const RecentlyUpdated = () => {
- 
-//Хотел использовать useEffect для того чтобы имитровать вытягивание данных но потом подумал ну его 
+  const [updatedMovies] = useState([
+    {
+      rank: 81,
+      title: "Capernaum",
+      description:
+        "While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_UY67_CR1,0,45,67_AL_.jpg",
+      rating: "8.4",
+      id: "top81",
+      year: 2018,
+      imdbid: "tt8267604",
+      imdb_link: "https://www.imdb.com/title/tt8267604",
+    },
+    {
+      rank: 82,
+      title: "Come and See",
+      description:
+        "After finding an old rifle, a young boy joins the Soviet resistance movement against ruthless German forces and experiences the horrors of World War II.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      genre: ["Drama", "Thriller", "War"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX100_CR0,3,100,148_.jpg",
+      rating: "8.4",
+      id: "top82",
+      year: 1985,
+      imdbid: "tt0091251",
+      imdb_link: "https://www.imdb.com/title/tt0091251",
+    },
+    {
+      rank: 83,
+      title: "Toy Story",
+      description:
+        "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      genre: ["Animation", "Adventure", "Comedy"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX45_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top83",
+      year: 1995,
+      imdbid: "tt0114709",
+      imdb_link: "https://www.imdb.com/title/tt0114709",
+    },
+    {
+      rank: 84,
+      title: "American Beauty",
+      description:
+        "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top84",
+      year: 1999,
+      imdbid: "tt0169547",
+      imdb_link: "https://www.imdb.com/title/tt0169547",
+    },
+    {
+      rank: 81,
+      title: "Capernaum",
+      description:
+        "While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_UY67_CR1,0,45,67_AL_.jpg",
+      rating: "8.4",
+      id: "top81",
+      year: 2018,
+      imdbid: "tt8267604",
+      imdb_link: "https://www.imdb.com/title/tt8267604",
+    },
+    {
+      rank: 82,
+      title: "Come and See",
+      description:
+        "After finding an old rifle, a young boy joins the Soviet resistance movement against ruthless German forces and experiences the horrors of World War II.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      genre: ["Drama", "Thriller", "War"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX100_CR0,3,100,148_.jpg",
+      rating: "8.4",
+      id: "top82",
+      year: 1985,
+      imdbid: "tt0091251",
+      imdb_link: "https://www.imdb.com/title/tt0091251",
+    },
+    {
+      rank: 83,
+      title: "Toy Story",
+      description:
+        "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      genre: ["Animation", "Adventure", "Comedy"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX45_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top83",
+      year: 1995,
+      imdbid: "tt0114709",
+      imdb_link: "https://www.imdb.com/title/tt0114709",
+    },
+    {
+      rank: 84,
+      title: "American Beauty",
+      description:
+        "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top84",
+      year: 1999,
+      imdbid: "tt0169547",
+      imdb_link: "https://www.imdb.com/title/tt0169547",
+    },
+    {
+      rank: 81,
+      title: "Capernaum",
+      description:
+        "While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_QL75_UY562_CR7,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2._V1_UY67_CR1,0,45,67_AL_.jpg",
+      rating: "8.4",
+      id: "top81",
+      year: 2018,
+      imdbid: "tt8267604",
+      imdb_link: "https://www.imdb.com/title/tt8267604",
+    },
+    {
+      rank: 82,
+      title: "Come and See",
+      description:
+        "After finding an old rifle, a young boy joins the Soviet resistance movement against ruthless German forces and experiences the horrors of World War II.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,10,380,562_.jpg",
+      genre: ["Drama", "Thriller", "War"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BODM4Njg0NTAtYjI5Ny00ZjAxLTkwNmItZTMxMWU5M2U3M2RjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX100_CR0,3,100,148_.jpg",
+      rating: "8.4",
+      id: "top82",
+      year: 1985,
+      imdbid: "tt0091251",
+      imdb_link: "https://www.imdb.com/title/tt0091251",
+    },
+    {
+      rank: 83,
+      title: "Toy Story",
+      description:
+        "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_QL75_UX380_CR0,2,380,562_.jpg",
+      genre: ["Animation", "Adventure", "Comedy"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX45_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top83",
+      year: 1995,
+      imdbid: "tt0114709",
+      imdb_link: "https://www.imdb.com/title/tt0114709",
+    },
+    {
+      rank: 84,
+      title: "American Beauty",
+      description:
+        "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      big_image:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+      genre: ["Drama"],
+      thumbnail:
+        "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
+      rating: "8.3",
+      id: "top84",
+      year: 1999,
+      imdbid: "tt0169547",
+      imdb_link: "https://www.imdb.com/title/tt0169547",
+    },
+  ]);
 
-    const [updatedMovies, setUpdatetMovies] = useState([
-        {
-            "rank": 11,
-            "title": "Forrest Gump",
-            "description": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
-            "image": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY562_CR4,0,380,562_.jpg",
-            "big_image": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY562_CR4,0,380,562_.jpg",
-            "genre": [
-              "Drama",
-              "Romance"
-            ],
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg",
-            "rating": "8.8",
-            "id": "top11",
-            "year": 1994,
-            "imdbid": "tt0109830",
-            "imdb_link": "https://www.imdb.com/title/tt0109830",
-          },
-          {
-            "rank": 12,
-            "title": "Fight Club",
-            "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
-            "image": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
-            "big_image": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@",
-            "genre": [
-              "Drama"
-            ],
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_UY67_CR0,0,45,67_AL_.jpg",
-            "rating": "8.8",
-            "id": "top12",
-            "year": 1999,
-            "imdbid": "tt0137523",
-            "imdb_link": "https://www.imdb.com/title/tt0137523"
-          },
-          {
-            "rank": 13,
-            "title": "The Lord of the Rings: The Two Towers",
-            "description": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
-            "image": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg",
-            "big_image": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg",
-            "genre": [
-              "Action",
-              "Adventure",
-              "Drama"
-            ],
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg",
-            "rating": "8.8",
-            "id": "top13",
-            "year": 2002,
-            "imdbid": "tt0167261",
-            "imdb_link": "https://www.imdb.com/title/tt0167261"
-          },
-          {
-            "rank": 14,
-            "title": "Inception",
-            "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-            "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-            "big_image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-            "genre": [
-              "Action",
-              "Adventure",
-              "Sci-Fi"
-            ],
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg",
-            "rating": "8.7",
-            "id": "top14",
-            "year": 2010,
-            "imdbid": "tt1375666",
-            "imdb_link": "https://www.imdb.com/title/tt1375666"
-          },
-    ])
-   
+  const getObjectToDescriptionPage = (itemId: string) => {
+    const descObj = updatedMovies.find((item) => item.imdbid === itemId)
+    console.log(descObj);
+  };
 
   return (
-    <section className="recently-updated container">
-      <div className="recently-updated-title">
+    <section className="recently-updated">
+      <div className="recently-updated-title container">
         <h2 className="recently-updated-title-text">Recently Updated</h2>
       </div>
-      <div className="updatet-items">
-        <div className="updatet-item">
-          <div className="updatet-item-img">
-            <img className="uptadet-img" src='' />
-          </div>
-          <div className="updatet-item-desc">
-            <h4 className="updatet-item-title">1</h4>
-            <h4 className="updatet-item-data">2</h4>
-            <h4 className="updatet-item-rank">3</h4>
-          </div>
-        </div>
+      <div className="updatet-items container">
+        {updatedMovies.map((item) => (
+          <button
+            key={item.imdbid}
+            className="btn-to-decription-page"
+            onClick={() => getObjectToDescriptionPage(item.imdbid)}
+          >
+            <div className="updatet-item" key={item.imdbid}>
+              <div className="updatet-item-img">
+                <img className="uptadet-img" src={item.image} />
+              </div>
+              <div className="updatet-item-desc">
+                <h4 className="updatet-item-title">{item.title}</h4>
+                <h4 className="updatet-item-data">{item.year}</h4>
+                <h4 className="updatet-item-rank">{item.rating}</h4>
+              </div>
+            </div>
+          </button>
+        ))}
       </div>
     </section>
   );

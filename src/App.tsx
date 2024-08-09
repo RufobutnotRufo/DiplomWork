@@ -5,6 +5,7 @@ import LoginRegister from "./Pages/loginRegister/LoginRegister";
 import { MyContextProvider } from "./UseContext";
 import HeroSlider from "./HeroSlider/HeroSlider";
 import RecentlyUpdated from "./RecentlyUpdated/RecentlyUpdated";
+import Description from "./Pages/loginRegister/Description/Description";
 
 
 function App() {
@@ -19,10 +20,12 @@ function App() {
               <>
                 <HeroSlider />
                 <RecentlyUpdated/>
+                <Description />
               </>
             }
           ></Route>
           <Route path="/Sign-Up" element={<LoginRegister />}></Route>
+          {/* <Route path="/Description" element={<Description />}></Route> */}
         </Routes>
       </MyContextProvider>
     </BrowserRouter>
