@@ -1,5 +1,6 @@
 import "./RecentlyUpdated.scss";
 import { useState } from "react";
+import { useMyContext } from "../UseContext";
 
 const RecentlyUpdated = () => {
   const [updatedMovies] = useState([
@@ -18,7 +19,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top81",
       year: 2018,
-      imdbid: "tt8267604",
+      imdbid: "12",
       imdb_link: "https://www.imdb.com/title/tt8267604",
     },
     {
@@ -36,7 +37,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top82",
       year: 1985,
-      imdbid: "tt0091251",
+      imdbid: "11",
       imdb_link: "https://www.imdb.com/title/tt0091251",
     },
     {
@@ -54,7 +55,7 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top83",
       year: 1995,
-      imdbid: "tt0114709",
+      imdbid: "10",
       imdb_link: "https://www.imdb.com/title/tt0114709",
     },
     {
@@ -72,7 +73,7 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top84",
       year: 1999,
-      imdbid: "tt0169547",
+      imdbid: "9",
       imdb_link: "https://www.imdb.com/title/tt0169547",
     },
     {
@@ -90,7 +91,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top81",
       year: 2018,
-      imdbid: "tt8267604",
+      imdbid: "8",
       imdb_link: "https://www.imdb.com/title/tt8267604",
     },
     {
@@ -108,7 +109,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top82",
       year: 1985,
-      imdbid: "tt0091251",
+      imdbid: "7",
       imdb_link: "https://www.imdb.com/title/tt0091251",
     },
     {
@@ -126,7 +127,7 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top83",
       year: 1995,
-      imdbid: "tt0114709",
+      imdbid: "6",
       imdb_link: "https://www.imdb.com/title/tt0114709",
     },
     {
@@ -144,7 +145,7 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top84",
       year: 1999,
-      imdbid: "tt0169547",
+      imdbid: "5",
       imdb_link: "https://www.imdb.com/title/tt0169547",
     },
     {
@@ -162,7 +163,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top81",
       year: 2018,
-      imdbid: "tt8267604",
+      imdbid: "4",
       imdb_link: "https://www.imdb.com/title/tt8267604",
     },
     {
@@ -180,7 +181,7 @@ const RecentlyUpdated = () => {
       rating: "8.4",
       id: "top82",
       year: 1985,
-      imdbid: "tt0091251",
+      imdbid: "3",
       imdb_link: "https://www.imdb.com/title/tt0091251",
     },
     {
@@ -198,7 +199,7 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top83",
       year: 1995,
-      imdbid: "tt0114709",
+      imdbid: "2",
       imdb_link: "https://www.imdb.com/title/tt0114709",
     },
     {
@@ -216,10 +217,11 @@ const RecentlyUpdated = () => {
       rating: "8.3",
       id: "top84",
       year: 1999,
-      imdbid: "tt0169547",
+      imdbid: "1",
       imdb_link: "https://www.imdb.com/title/tt0169547",
     },
   ]);
+
 
   const getObjectToDescriptionPage = (itemId: string) => {
     const descObj = updatedMovies.find((item) => item.imdbid === itemId)
