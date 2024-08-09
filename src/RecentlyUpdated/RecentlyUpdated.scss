@@ -1,0 +1,41 @@
+.recently-updated{
+    margin-top: 72px;
+    .recently-updated-title-text{
+        font-size: 24px;
+        font-weight: 500;
+        color: #000000;
+        font-family: "Poppins", sans-serif;
+    }
+    .updatet-items{
+        margin-top: 24px;
+        .updatet-item{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            .updatet-item-img{
+                img{
+                    width: 64px;
+                    height: 103px;
+                    border-radius: 5px;
+                }
+            }
+            .updatet-item-desc{
+                .updatet-item-title{
+                    font-size: 16px;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 500;
+                }
+                .updatet-item-data{
+                    font-size: 16px;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                }
+                .updatet-item-rank{
+                    font-size: 16px;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

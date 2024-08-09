@@ -1,0 +1,100 @@
+header {
+    background-color: rgb(3, 1, 1);
+    .watch-later-style{
+        color: red;
+    }
+
+    .header-inner {
+        padding: 36px;
+
+        .header-menu-nav {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+
+            .header-menu-nav-item {
+                .header-menu-nav-item-link {
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 600;
+                    font-size: 16px;
+                    cursor: pointer;
+                    position: relative;
+                    color: #FFFFFF;
+
+                    .busket-svg {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    .input-seacrh {
+                        width: 100%;
+                        max-width: 500px;
+                        height: 40px;
+                        border-radius: 30px;
+                        border: none;
+                        padding: 10px;
+                        font-family: "Poppins", sans-serif;
+                        font-size: 16px;
+                        font-weight: 400px;
+                    }
+
+                    .log-in-sign-up-button {
+                        border: none;
+                        background-color: inherit;
+                        color: #FFFFFF;
+                        font-family: "Poppins", sans-serif;
+                        font-size: 16px;
+                        font-weight: 400px;
+                        cursor: pointer;
+                    }
+
+                    &:hover::after {
+                        content: "";
+                        background-color: red;
+                        width: 5px;
+                        height: 5px;
+                        position: absolute;
+                        left: 50%;
+                        top: 100%;
+                        right: 50%;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+}
+
+@media (max-width:930px) {
+    header {
+        .header-inner {
+            .header-menu-nav {
+                .header-menu-nav-item {
+                    .header-menu-nav-item-link {
+                        font-size: 10px;
+
+                        .input-seacrh {
+                            height: 20px;
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:780px) {
+    header {
+        .header-inner {
+            .header-menu-nav {
+                flex-direction: column;
+            }
+        }
+    }
+}
