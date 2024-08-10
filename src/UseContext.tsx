@@ -11,7 +11,7 @@ interface MyContextType {
   descriptionData: Movie | undefined;
   setDescriptionData: (descriptionData: Movie | undefined) => void;
   selectedGenre: string;
-  setSelectedGenre: (genre: string) => void; // Updated
+  setSelectedGenre: (genre: string) => void; 
 }
 
 const MyContextDefaultValues: MyContextType = {
@@ -24,7 +24,7 @@ const MyContextDefaultValues: MyContextType = {
   descriptionData: undefined,
   setDescriptionData: () => {},
   selectedGenre: '',
-  setSelectedGenre: () => {}, // Updated
+  setSelectedGenre: () => {}, 
 };
 
 const MyContext = createContext<MyContextType>(MyContextDefaultValues);

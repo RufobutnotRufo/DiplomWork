@@ -7,6 +7,7 @@ import HeroSlider from "./HeroSlider/HeroSlider";
 import RecentlyUpdated from "./RecentlyUpdated/RecentlyUpdated";
 import Description from "./Pages/loginRegister/Description/Description";
 import SelectedGenre from "./Pages/loginRegister/SelectedGenre/SelectedGenre";
+import Genres from "./Genres/Genres";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Sign-Up" element={<LoginRegister />}></Route>
           <Route path="/Description" element={<Description />}></Route>
           <Route path="/Description/Genre" element={<SelectedGenre />}></Route>
+          <Route path="/Genres" element={<Genres />}></Route>
         </Routes>
       </MyContextProvider>
     </BrowserRouter>

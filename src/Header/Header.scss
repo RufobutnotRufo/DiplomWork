@@ -28,6 +28,7 @@ header {
                     }
 
                     .input-seacrh {
+                        position: relative;
                         width: 100%;
                         max-width: 500px;
                         height: 40px;
@@ -66,6 +67,32 @@ header {
 
         }
 
+    }
+}
+
+.toggle-menu-seacrh{
+    border-radius: 10px;
+    text-align: center;
+    border: solid rgb(82, 0, 0) 2px;
+    height: 200px;
+    width: 220px;
+    overflow-y: auto; 
+    position: absolute;
+    z-index: 2;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    .toggle-menu-seacrh-items{
+        margin-top: 10px;
+        display: flex;
+        gap: 5px;
+        .seacrh-menu-poster{
+            width: 100px;
+            height: 100px;
+            border: solid rgb(0, 0, 0) 1px;
+            img{
+                width: 100%;
+            }
+        }
     }
 }
 

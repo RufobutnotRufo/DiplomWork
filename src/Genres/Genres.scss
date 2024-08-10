@@ -1,0 +1,37 @@
+.genres-section{
+    padding: 20px 20px 20px 20px;
+    background-color: red;
+    .genres-section-inner{
+        .genres-section-inner-title{
+            .genres-section-inner-title-text{
+                text-align: center;
+                font-size: 30px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 900;
+                color: aliceblue;
+            }
+        }
+        .genres-section-inner-items{
+            display: flex;
+            gap: 3px;
+            flex-direction: column;
+            row-gap: 10px;
+            .show-genres-btn{
+                padding: 5px 5px 5px 5px;
+                font-size: 20px;
+                font-family: "Poppins", sans-serif;
+                background-color: black;
+                color: white;
+                font-weight: 600;
+            }
+            .genres-item{
+                padding: 5px 5px 5px 5px;
+                font-size: 20px;
+                font-family: "Poppins", sans-serif;
+                background-color: black;
+                color: white;
+                font-weight: 600;
+            }
+        }
+    }
+}
