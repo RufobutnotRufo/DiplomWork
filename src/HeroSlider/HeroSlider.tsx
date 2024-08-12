@@ -1,12 +1,8 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "./HeroSlider.scss"; // Ваши стили
-import { EffectCoverflow, Pagination } from "swiper/modules";
-import nowImg from "../assets/Vector (6).svg";
+import "./HeroSlider.scss";
 import { Movie } from "../UserInterface";
 import { useState } from "react";
+import { useMyContext } from "../UseContext";
+import { useNavigate } from "react-router";
 
 const HeroSlider = () => {
   const [popularMovies] = useState<Movie[]>([
@@ -120,7 +116,7 @@ const HeroSlider = () => {
     },
     {
       rank: 7,
-      title: "The Lord of the Rings: The Return of the King",
+      title: "The Lord of the Rings",
       description:
         "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
       image:
@@ -156,7 +152,7 @@ const HeroSlider = () => {
     },
     {
       rank: 9,
-      title: "The Lord of the Rings: The Fellowship of the Ring",
+      title: "The Lord of the Rings",
       description:
         "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
       image:
@@ -191,61 +187,69 @@ const HeroSlider = () => {
       imdb_link: "https://www.imdb.com/title/tt0060196",
     },
   ]);
+  const navigate = useNavigate();
+
+  const { setDescriptionData } = useMyContext();
+
+  const getItemToDescription = (itemId: any) => {
+    const movie = popularMovies.find((item) => item.id === itemId);
+    setDescriptionData(movie);
+    navigate("/Description");
+  };
 
   return (
-    <Swiper
-      effect={"coverflow"}
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={"auto"}
-      loop={true}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }}
-      pagination={{ clickable: true }}
-      modules={[EffectCoverflow, Pagination]}
-      className="mySwiper"
-    >
-      {popularMovies.map((item, index) => (
-        <SwiperSlide key={item.imdbid}>
-          <div className="movie-item">
-            <div className="movie-img-item">
-              <img
-                src={item.big_image}
-                className="movie-img"
-                alt={`Slide ${index}`}
-              />
-              <div className="buttons">
-                <a href={item.imdb_link}>
-                  <button className="watch-now-btn">
-                    Watch Now <img src={nowImg} alt="Watch Now" />
-                  </button>
+    <div className="grid-card container">
+      {popularMovies.map((item) => (
+        <div
+          className="card-item"
+          key={item.id}
+          onClick={() => getItemToDescription(item.id)}
+        >
+          <div className="wrapper-image">
+            <div className="image-16-9">
+              <img className="image-ratio" src={item.image} alt="thumbnail" />
+            </div>
+          </div>
+          <div className="transcoding">
+            <div className="transcoding-inner">
+              <span>{item.title}</span>
+            </div>
+          </div>
+          <div className="card-overlay">
+            <div className="card-info">
+              <div className="card-info-body">
+                <div className="info-description">
+                  <h2>{item.genre}</h2>
+                  <p>{item.rating}</p>
+                  <p>
+                    <strong>Year:</strong> {item.year}
+                  </p>
+                  <ul className="list-label">
+                    <li className="label">
+                      <strong>2019</strong>
+                    </li>
+                    <li className="label-separated">|</li>
+                    <li className="label">
+                      <strong>Season:</strong> 5 (17 episodes)
+                    </li>
+                    <li className="label-separated">|</li>
+                    <li className="label">25m</li>
+                  </ul>
+                </div>
+                <a className="info-menu" href="#">
+                  <i className="fas fa-ellipsis-v"></i>
+                </a>
+              </div>
+              <div className="card-info-footer">
+                <a className="preview" href="#">
+                  <i className="fas fa-play"></i>
                 </a>
               </div>
             </div>
-
-            <div className="item-desc">
-              <h1 className="movie-name">{item?.title}</h1>
-              <ul className="movie-genre">
-                {item.genre.map((genre, index) => (
-                  <li key={index} className="movie-genre-item">
-                    {genre}
-                  </li>
-                ))}
-              </ul>
-              <p className="movie-desc">{item.description}</p>
-              <p className="movie-rank">Rang {item.rank}</p>
-              <p className="movie-year">Year {item.year}</p>
-              <p className="movie-raiting">Movie Raiting {item.rating}</p>
-            </div>
           </div>
-        </SwiperSlide>
+        </div>
       ))}
-    </Swiper>
+    </div>
   );
 };
 

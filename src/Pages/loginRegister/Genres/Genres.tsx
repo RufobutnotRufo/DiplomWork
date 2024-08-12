@@ -1,5 +1,5 @@
 import "./Genres.scss";
-import { useMyContext } from "../UseContext";
+import { useMyContext } from "../../../UseContext";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -22,6 +22,7 @@ const Genres = () => {
   };
 
   return (
+    <div>
     <section className="genres-section">
       <div className="genres-section-inner container">
         <div className="genres-section-inner-title">
@@ -39,7 +40,9 @@ const Genres = () => {
             ))}
         </div>
       </div>
-    </section>
+ </section>
+<div className="block" onClick={()=>navigate("/Sign-Up")}><div>GET A DISCOUNT 1%</div></div>
+</div>
   );
 };
 

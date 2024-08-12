@@ -7,20 +7,22 @@ import HeroSlider from "./HeroSlider/HeroSlider";
 import RecentlyUpdated from "./RecentlyUpdated/RecentlyUpdated";
 import Description from "./Pages/loginRegister/Description/Description";
 import SelectedGenre from "./Pages/loginRegister/SelectedGenre/SelectedGenre";
-import Genres from "./Genres/Genres";
+import Genres from "./Pages/loginRegister/Genres/Genres";
+import Movies from "./Pages/loginRegister/Movies/Movies";
+import WatchLater from "./Pages/loginRegister/WatchLater/WatchLater";
 
 function App() {
   return (
     <BrowserRouter>
       <MyContextProvider>
         <Header />
+        <RecentlyUpdated />
         <Routes>
           <Route
             path="/"
             element={
               <>
                 <HeroSlider />
-                <RecentlyUpdated />
               </>
             }
           ></Route>
@@ -28,6 +30,8 @@ function App() {
           <Route path="/Description" element={<Description />}></Route>
           <Route path="/Description/Genre" element={<SelectedGenre />}></Route>
           <Route path="/Genres" element={<Genres />}></Route>
+          <Route path="/Movies" element={<Movies />}></Route>
+          <Route path="/WatchNow" element={<WatchLater/>}></Route>
         </Routes>
       </MyContextProvider>
     </BrowserRouter>

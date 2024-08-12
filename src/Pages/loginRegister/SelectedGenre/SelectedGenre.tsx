@@ -35,9 +35,7 @@ const SelectedGenre = () => {
   return (
     <section className="selected-genre-section">
       <div className="selected-genre-section-inner container">
-        <div className="selected-genre-section-title">
-          <h1 className="selected-genre-section-title-text">Selected genres</h1>
-        </div>
+        
 
         <div className="selected-genre-items">
           {filteredMovies.map((item) => (

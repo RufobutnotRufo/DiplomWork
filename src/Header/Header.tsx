@@ -12,11 +12,11 @@ const Header: React.FC = () => {
   const [seacrhetDatas, setSeacrhetDatas] = useState<Movie[]>([]);
 
   const searchModalTogleOpen = () => {
-    setSeacrhMenuToggle(true);
+    setSeacrhMenuToggle(!seacrhMenuToggle);
   };
-  const searchModalTogleClose = () => {
-    setSeacrhMenuToggle(false);
-  };
+  // const searchModalTogleClose = () => {
+  //   setSeacrhMenuToggle(false);
+  // };
 
   const getSearchInputValue = (e: any) => {
     setSearchInputValue(e.target.value);
@@ -49,37 +49,35 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className="header-menu-nav-item">
-              <a className="header-menu-nav-item-link">Country</a>
-            </li>
-            <li className="header-menu-nav-item">
               <a className="header-menu-nav-item-link">
                 <div className="header-input-search">
                   <input
                     className="input-seacrh"
                     placeholder="Search movies......."
-                    onFocus={() => searchModalTogleOpen()}
-                    onBlur={() => searchModalTogleClose()}
+                    onFocus={searchModalTogleOpen}
                     onChange={getSearchInputValue}
                   />
                   {seacrhMenuToggle ? (
                     <div className="toggle-menu-seacrh">
                       {seacrhetDatas.map((item) => (
-                        <div className="toggle-menu-seacrh-items">
-                          <div className="seacrh-menu-poster">
-                            <img
-                              className="poster-img-search"
-                              src={item.image}
-                            />
+                        <a href={item.imdb_link} key={item.id}>
+                          <div className="toggle-menu-seacrh-items">
+                            <div className="seacrh-menu-poster">
+                              <img
+                                className="poster-img-search"
+                                src={item.image}
+                              />
+                            </div>
+                            <div>
+                              <p className="poster-img-search-title">
+                                {item.title}
+                              </p>
+                              <p className="poster-img-search-title-desc">
+                                {item.description}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="poster-img-search-title">
-                              {item.title}
-                            </p>
-                            <p className="poster-img-search-title-desc">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
                   ) : (
@@ -89,12 +87,14 @@ const Header: React.FC = () => {
               </a>
             </li>
             <li className="header-menu-nav-item">
-              <a className="header-menu-nav-item-link">Movies</a>
+              <Link to="/Movies" className="header-menu-nav-item-link">
+                Movies
+              </Link>
             </li>
             <li className="header-menu-nav-item">
-              <a className="header-menu-nav-item-link">
+              <Link to="/WatchNow" className="header-menu-nav-item-link">
                 Watch<span className="watch-later-style">Later</span>
-              </a>
+              </Link>
             </li>
             <li className="header-menu-nav-item">
               <a className="header-menu-nav-item-link">Store</a>

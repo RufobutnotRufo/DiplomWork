@@ -75,14 +75,41 @@ header {
     padding: 20px 20px 20px 20px;
     border-radius: 10px;
     text-align: center;
-    border: solid rgb(82, 0, 0) 2px;
-    height: 500px;
+    border: solid red 4px;
+    height: 400px;
     width: 400px;
     overflow-y: auto;
     position: absolute;
     z-index: 2;
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: darkblue;
+
+    &::-webkit-scrollbar {
+        width: 10px; 
+        height: 100px; 
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255);
+        border-radius: 50px; 
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+        background-color: rgb(255, 255, 255);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     .toggle-menu-seacrh-items {
