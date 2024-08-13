@@ -10,6 +10,8 @@ import SelectedGenre from "./Pages/loginRegister/SelectedGenre/SelectedGenre";
 import Genres from "./Pages/loginRegister/Genres/Genres";
 import Movies from "./Pages/loginRegister/Movies/Movies";
 import WatchLater from "./Pages/loginRegister/WatchLater/WatchLater";
+import Video from "./VideoComp/Video";
+import NewMovies from "./NewMovies/NewMovies";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             element={
               <>
                 <HeroSlider />
+                <Video/>
+                <NewMovies/>
               </>
             }
           ></Route>

@@ -1,0 +1,56 @@
+.new-movies{
+    background: linear-gradient(-45deg, #f01a1a, #ff0000, #ff0000, #ff0404, #000000, #000000, #000000);
+    background-size: 500% 500%;
+    animation: gradient 3.5s ease infinite;
+    padding: 20px 20px 20px 20px;
+  text-align: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	25% {
+		background-position: 25% 75%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	75% {
+		background-position: 25% 75%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.card{
+    width: 300px;
+    height: 240px;
+    background: #eee;
+    border-radius: 10px;
+    margin: 40px 10px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    transition: all 0.5s;
+  }
+  .card:hover{
+    transition: all 0.9s;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  }
+
+  .new-movies-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card{
+        width: 200px;
+        height: 170px;
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+
+        img{
+            width: 200px;
+            height: 170px;
+        }
+    }
+  }
