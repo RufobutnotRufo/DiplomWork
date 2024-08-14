@@ -216,13 +216,14 @@ const NewMovies = () => {
 },]
   return (
     <section className="new-movies">
+      <h1 className="new-movies-title">New <span>Movies</span></h1>
         <div className="new-movies-items">
         {newMoviesMovies.map((item)=>(
             <div className="card">
                 <a href={item.imdb_link}>
                 <img src={item.image} alt="" />
                 <p className="item-title">{item.title}</p>
-                <p className="item-raiting">{item.rating}</p>
+                <p className="item-raiting">Raiting: {item.rating}</p>
                 </a>
             </div>
         ))}

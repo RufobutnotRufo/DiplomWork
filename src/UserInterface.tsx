@@ -21,3 +21,14 @@ export interface Movie {
   imdb_link: string;
   new?:boolean;
 }
+
+
+
+export interface StoreProducts {
+  name:string;
+  id:number;
+  movie:string;
+  description:string;
+  link?:string;
+  quantity?:number
+}

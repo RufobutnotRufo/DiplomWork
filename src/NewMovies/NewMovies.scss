@@ -54,3 +54,15 @@
         }
     }
   }
+
+  .new-movies-title{
+    font-size: 40px;
+    color: #eee;
+    font-family: "Poppins", sans-serif;
+    span{
+      color: red;
+      animation: gradient 3.5s ease infinite;
+      background: linear-gradient(-45deg, #000000, #ff0000, #000000, #ff0404, #000000, #f10a0a, #000000);
+      
+    }
+  }

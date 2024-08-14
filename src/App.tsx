@@ -12,6 +12,8 @@ import Movies from "./Pages/loginRegister/Movies/Movies";
 import WatchLater from "./Pages/loginRegister/WatchLater/WatchLater";
 import Video from "./VideoComp/Video";
 import NewMovies from "./NewMovies/NewMovies";
+import Footer from "./Footer/Footer";
+import Store from "./Pages/loginRegister/Store/Store";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
                 <HeroSlider />
                 <Video/>
                 <NewMovies/>
+                <Store/>
               </>
             }
           ></Route>
@@ -37,6 +40,7 @@ function App() {
           <Route path="/Movies" element={<Movies />}></Route>
           <Route path="/WatchNow" element={<WatchLater/>}></Route>
         </Routes>
+        <Footer/>
       </MyContextProvider>
     </BrowserRouter>
   );
