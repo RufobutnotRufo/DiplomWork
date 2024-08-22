@@ -219,7 +219,7 @@ const NewMovies = () => {
       <h1 className="new-movies-title">New <span>Movies</span></h1>
         <div className="new-movies-items">
         {newMoviesMovies.map((item)=>(
-            <div className="card">
+            <div className="card" key={item.id}>
                 <a href={item.imdb_link}>
                 <img src={item.image} alt="" />
                 <p className="item-title">{item.title}</p>

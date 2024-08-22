@@ -25,10 +25,12 @@ export interface Movie {
 
 
 export interface StoreProducts {
-  name:string;
-  id:number;
-  movie:string;
-  description:string;
+  name?:string;
+  id?:number;
+  movie?:string;
+  description?:string;
   link?:string;
   quantity?:number
+  price?: number;
+  img?:string;
 }

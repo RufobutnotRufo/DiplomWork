@@ -1,0 +1,58 @@
+.busket-section {
+    margin-top: 40px;
+    background-color: rgb(255, 255, 255);
+
+    .busket-section-inner {
+        padding-top: 50px;
+    }
+
+    .busket-section-title {
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .busket-empty-title{
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    .busket-prods-items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+
+        .busekt-prod-item {
+            color: black;
+            font-family: "Poppins", sans-serif;
+            font-size: 15px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            width: 300px;
+            height: 600px;
+            padding: 20px 20px 20px 20px;
+            border: solid rgb(255, 0, 0) 10px;
+
+            .busket-prod-img {
+                img {
+                    width: 230px;
+                    height: 250px;
+                }
+            }
+
+        }
+    }
+
+    .delete-from-busket-btn {
+        background-color: black;
+        color: aliceblue;
+        font-family: "Poppins", sans-serif;
+        box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, .2);
+        padding: 18px 18px 18px 18px;
+    }
+
+}

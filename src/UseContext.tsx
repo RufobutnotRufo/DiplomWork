@@ -1,6 +1,18 @@
 import React, { createContext, useContext, ReactNode, useState } from "react";
 import { UserInterface, Movie } from "./UserInterface";
 
+interface BusketItem {
+  id: number;
+  name: string;
+  quantity: number;
+  img?:string;
+  link:string;
+  price:number;
+  movie:string;
+  description:string;
+}
+
+
 interface MyContextType {
   registredUsers: UserInterface[];
   setRegistredUsers: (users: UserInterface[]) => void;
@@ -12,6 +24,8 @@ interface MyContextType {
   setDescriptionData: (descriptionData: Movie | undefined) => void;
   selectedGenre: string;
   setSelectedGenre: (genre: string) => void; 
+  busket: BusketItem[];
+setBusket: React.Dispatch<React.SetStateAction<BusketItem[]>>;
 }
 
 const MyContextDefaultValues: MyContextType = {
@@ -25,6 +39,8 @@ const MyContextDefaultValues: MyContextType = {
   setDescriptionData: () => {},
   selectedGenre: '',
   setSelectedGenre: () => {}, 
+  busket: [],
+  setBusket: () => {},
 };
 
 const MyContext = createContext<MyContextType>(MyContextDefaultValues);
@@ -46,8 +62,9 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({
     },
   ]);
   const [userData, setUserData] = useState<UserInterface>({} as UserInterface);
-
-  const [descriptionData, setDescriptionData] = useState<Movie>();
+  const [descriptionData, setDescriptionData] = useState<Movie | undefined>(undefined);
+  const [selectedGenre, setSelectedGenre] = useState<string>('');
+  const [busket, setBusket] = useState<BusketItem[]>([]);
   const [moviesBase, setMoviesBase] = useState<Movie[]>([ {
     "rank": 11,
     "title": "Forrest Gump",
@@ -1623,7 +1640,9 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({
   "imdbid": "tt0022100",
   "imdb_link": "https://www.imdb.com/title/tt0022100"
 }]);
-const [selectedGenre,setSelectedGenre] = useState<string>('')
+
+
+
 
   return (
     <MyContext.Provider
@@ -1638,6 +1657,8 @@ const [selectedGenre,setSelectedGenre] = useState<string>('')
         setDescriptionData,
         selectedGenre,
         setSelectedGenre,
+        busket,
+        setBusket,
       }}
     >
       {children}

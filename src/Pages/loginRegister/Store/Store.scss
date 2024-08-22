@@ -19,13 +19,25 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 14px;
+        .price{
+            color: black;
+            font-family: "Poppins", sans-serif;
+        }
+        .product-description-img{
+            text-align: center;
+           img{
+            width: 300px;
+            height: 300px;
+           }
+          
+        }
 
         .product-item {
             display: flex;
             flex-direction: column;
             row-gap: 20px;
             width: 400px;
-            height: 350px; 
+            height: 700px; 
             background-color: #e00505; 
             border: 1px solid #ff0000; 
             border-radius: 8px;

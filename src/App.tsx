@@ -14,6 +14,7 @@ import Video from "./VideoComp/Video";
 import NewMovies from "./NewMovies/NewMovies";
 import Footer from "./Footer/Footer";
 import Store from "./Pages/loginRegister/Store/Store";
+import BusketPage from "./Pages/loginRegister/BusketPage/BusketPage";
 
 function App() {
   return (
@@ -27,9 +28,8 @@ function App() {
             element={
               <>
                 <HeroSlider />
-                <Video/>
-                <NewMovies/>
-                <Store/>
+                <Video />
+                <NewMovies />
               </>
             }
           ></Route>
@@ -38,9 +38,11 @@ function App() {
           <Route path="/Description/Genre" element={<SelectedGenre />}></Route>
           <Route path="/Genres" element={<Genres />}></Route>
           <Route path="/Movies" element={<Movies />}></Route>
-          <Route path="/WatchNow" element={<WatchLater/>}></Route>
+          <Route path="/WatchNow" element={<WatchLater />}></Route>
+          <Route path="/Store" element={<Store />}></Route>
+          <Route path="/Busket" element={<BusketPage />}></Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </MyContextProvider>
     </BrowserRouter>
   );

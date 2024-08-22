@@ -97,7 +97,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className="header-menu-nav-item">
-              <a className="header-menu-nav-item-link">Store</a>
+              <Link to={'/Store'} className="header-menu-nav-item-link">Store</Link>
             </li>
             <li className="header-menu-nav-item">
               <Link to="/Sign-Up" className="header-menu-nav-item-link">
@@ -109,9 +109,9 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className="header-menu-nav-item">
-              <a className="header-menu-nav-item-link">
+              <Link to='/Busket' className="header-menu-nav-item-link">
                 <img className="busket-svg" src={BusketSvg} />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
