@@ -1,22 +1,33 @@
 import "./Footer.scss";
+import Disk from "../assets/pngwing.com.png";
 
 const Footer = () => {
   return (
-    <div className="footer-wrapper">
-      <div className="footer-inner">
-        SKILLS: HTML CSS (SCSS) Tailwind, • JavaScript • TypeScript •
-        React,Redux •RESTful API • Experience with GitHub• Next Js (still
-        learning)
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-disk">
+          <img src={Disk} alt="Disk Image" />
+        </div>
+        <div className="footer-text">
+          <p>&copy; 2024 MovieMania. Все права защищены.</p>
+          <p>
+            Ваш путеводитель по миру фильмов. Откройте для себя шедевры
+            кинематографа, оцените новинки, и делитесь своими впечатлениями с
+            друзьями!
+          </p>
+        </div>
+        <div className="footer-links">
+          <a href="#about-us">О нас</a>
+          <a href="#contact">Контакты</a>
+          <a href="#support">Поддержка</a>
+        </div>
+        <div className="footer-social">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
       </div>
-      <div>I live:Kiev,Ukraine</div>
-      <div>AGE:26</div>
-      <div>EMAIL: mrufat755@gmail.com</div>
-      <div>Telegram: https://t.me/Righttack</div>
-      <div> Viber:+994502099190</div>
-      <div>WhatsUpp:+994502099190</div>
-      <div>from September 10, 2024 the number will be Ukrainian</div>
-      <div>Open To Work</div>
-    </div>
+    </footer>
   );
 };
 

@@ -4,7 +4,7 @@ import { StoreProducts } from "../../../UserInterface";
 import { useMyContext } from "../../../UseContext";
 
 const Store = () => {
-  const [storeProducts, setProducts] = useState<StoreProducts[]>([
+  const [storeProducts] = useState<StoreProducts[]>([
     {
       name: "Бензопила",
       id: 1,
@@ -251,7 +251,7 @@ const Store = () => {
     },
   ]);
 
-  const { busket, setBusket } = useMyContext();
+  const { setBusket } = useMyContext();
 
   const getItemInBusket = (itemId:any) => {
     const element = storeProducts.find((item) => item.id === itemId);
@@ -266,15 +266,6 @@ const Store = () => {
   };
   
 
-  const handleQuantityChange = (id:any, delta:any) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((product) =>
-        product.id === id
-          ? { ...product, quantity: Math.max((product.quantity || 1) + delta, 1) }
-          : product
-      )
-    );
-  };
 
   return (
     <div className="store">
@@ -295,9 +286,6 @@ const Store = () => {
               />
             </div>
             <div className="quantity-controls">
-              <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
-              <span>{product.quantity || 1}</span>
-              <button onClick={() => handleQuantityChange(product.id, -1)}>-</button>
             </div>
             <button
               className="add-to-cart-button"

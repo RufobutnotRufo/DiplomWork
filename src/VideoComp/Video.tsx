@@ -13,7 +13,7 @@ const Video: React.FC = () => {
 
   return (
     <div className="video-container">
-      <video ref={videoRef} width="100%" controls autoPlay>
+      <video ref={videoRef} width="100%" autoPlay muted playsInline loop>
         <source src={videoSrc} type="video/mp4" />
         Ваш браузер не поддерживает видео тег.
       </video>

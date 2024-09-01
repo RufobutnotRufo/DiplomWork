@@ -212,7 +212,7 @@ const HeroSlider = () => {
           </div>
           <div className="transcoding">
             <div className="transcoding-inner">
-              <span>{item.title}</span>
+              <span className="helloo srsc11" >{item.title}</span>
             </div>
           </div>
           <div className="card-overlay">

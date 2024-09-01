@@ -15,6 +15,8 @@ import NewMovies from "./NewMovies/NewMovies";
 import Footer from "./Footer/Footer";
 import Store from "./Pages/loginRegister/Store/Store";
 import BusketPage from "./Pages/loginRegister/BusketPage/BusketPage";
+import AdverisingVideo from "./AdvertisingVideo/AdvertisingVideo";
+import OurCinema from "./OurCinema/OurCinema";
 
 function App() {
   return (
@@ -27,9 +29,11 @@ function App() {
             path="/"
             element={
               <>
+               <AdverisingVideo/>
                 <HeroSlider />
                 <Video />
                 <NewMovies />
+                <OurCinema />
               </>
             }
           ></Route>

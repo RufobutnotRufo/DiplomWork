@@ -1,11 +1,58 @@
-.footer-wrapper {
-    background-color: #ffffff;
-    padding-top: 40px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
+.footer {
+    background-color: #000000;
+    margin-top: 100px;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-   
-}
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-disk img {
+      width: 100px;
+      margin-bottom: 15px;
+      animation:rotate 10.0s linear infinite;
+      :hover{
+        animation:rotate 1.0s linear infinite;
+      }
+    }
+  
+    .footer-text {
+      margin-bottom: 15px;
+    }
+  
+    .footer-links {
+      margin-bottom: 15px;
+  
+      a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .footer-social {
+      git push origin main
+      
+      a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
